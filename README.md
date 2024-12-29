@@ -40,24 +40,32 @@ Die großen Bauteile sind:
 * Bluetooth Low Energy Modul: Telit BlueMod S42
 * GPS Empfänger: Telit SC872-A
 
+Für die Stromversorgung auf dem Microcontroller Board wird ein 
+[LT8631 von Analog Devices](https://www.analog.com/en/products/lt8631.html)
+benutzt. Dieser hat eine Eingangsspannung von 3-100V und wird vermutlich direkt
+mit der Akkuspannung von ~50V gespeist. Das Board läuft aber problemlos mit 12V
+auf dem Schreibtisch.
+
 Schnittstellen
 --------------
 
 Als Schnittstellen zu den einzelnen Peripherien kommt zum Einsatz:
 
 - CAN Bus für das BMS und vermutlich den gesamten Roller
-- Seriell/UART für das GPS
+- Seriell/UART für das GPS auf dem 4 Pin Stecker inkl. Stromversorgung
 - Seriell/UART für das BLE 
 - Seriell/UART für das LTE 
 - Einige GPIOs, vermutlich um Bauteile "powercyclen" zu können. So findet
-  sich GPIO handling im CAN Bus teil und LTE teil
-
+  sich GPIO handling in der Software für den CAN Bus und im LTE teil
+- Der 10 Polige 0.1" Raster Anschluss ist ein standard Cortex-M JTAG
+- 11 Pin Anschluss zum BMS 
 
 GPS
 ===
 
 Das GPS ist vermutlich der einfachste Teil. Es ist separat über ein Kabel mit
-+5V, GND, TX und RX angebunden.
++5V, GND, TX und RX angebunden. Das Pinout des Steckers findet sich in 
+der Telit Dokumentation. Das Modul ist unverändert verbaut.
 
 Nach dem Power-On initialisiert der Controller das GPS mit ein paar AT Befehlen, 
 danach sendet das GPS regelmäßig NMEA Telegramme über Position, Satteliten etc.
@@ -79,3 +87,25 @@ aber auch bei anderen GPS Chipsets üblich:
 
 * PMTK 225 PMTK_CMD_PERIODIC_MODE
   8 -> AlwaysLocate standby mode
+
+Bluetooth Low Energy
+====================
+
+Ich habe bisher keine wirkliche funktion für das Bluetooth finden können. Das Modul
+wird initialisiert, es gibt einen Bluetooth Task der läuft.
+
+Initialisierung
+---------------
+
+So weit ich gefunden habe wird im BLE Task einfach nur der Name des BLE Moduls initialisiert
+so das dieses "discoverable" ist.
+
+    AT+BNAME=$akkuserial$
+
+Diesen kann man dann pairen - Als device name taucht die seriennummer des Akkus auf.
+
+CAN Bus
+=======
+
+- CAN Bus Frequency 250Khz
+
