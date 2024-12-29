@@ -27,7 +27,7 @@ Um das mit OpenOCD oder gdb zu aktivieren:
 
 Hier der identifier im RAM:
 
-	(gdb) xxd 0x20006c00 200
+	(gdb) xxd 0x20006c00 0x70
 	20006c00: 5345 4747 4552 2052 5454 0000 0000 0000  SEGGER RTT......
 	20006c10: 0300 0000 0300 0000 9ccc 0000 0852 0020  .............R. 
 	20006c20: 0004 0000 0d00 0000 0000 0000 0000 0000  ................
