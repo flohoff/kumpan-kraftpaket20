@@ -117,7 +117,13 @@ Steckerbelegung
 
 Der Kraftpaket und auch der Ladestecker sind identisch aufgebaut und Symmetrisch d.h. 
 können gedreht werden. Dafür sind die inneren Datenpins gespiegelt d.h. rechts und links
-identisch:
+identisch. Der CAN (Controller Area Network) Bus ist ein differentieller Bus d.h. hat
+eine High und eine Low Leitung.
 
-![Kraftpaket 2.0 Stecker](images/20231230-stecker-akku-labels.jpg "Kraftpaket 2.0 Stecker")
+![Kraftpaket 2.0 Stecker](images/20241230-stecker-akku-labels.jpg "Kraftpaket 2.0 Stecker")
 
+Die 4 äusseren Pins werden vermutlich dazu verwendet festzustellen ob ein Akku gesteckt
+ist. So hat der Blindstecker für nicht genutzte Akkusteckplätze nur jeweils diagonal 
+gegenüber liegende Pins bestückt. 
+
+![Blindstecker](images/20241230-blindstecker.jpg "Kraftpaket Blindstecker")
