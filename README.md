@@ -39,12 +39,14 @@ Die großen Bauteile sind:
 * LTE Module: Telit GE866-QUAD
 * Bluetooth Low Energy Modul: Telit BlueMod S42
 * GPS Empfänger: Telit SC872-A
+* NXP TJA1145: Accelerometer
+* TI TPS7A89: Low Drop Voltage Regulator
 
 Für die Stromversorgung auf dem Microcontroller Board wird ein 
 [LT8631 von Analog Devices](https://www.analog.com/en/products/lt8631.html)
 benutzt. Dieser hat eine Eingangsspannung von 3-100V und wird vermutlich direkt
 mit der Akkuspannung von ~50V gespeist. Das Board läuft aber problemlos mit 12V
-auf dem Schreibtisch.
+auf dem Schreibtisch. Für weitere Spannungen ist ein TI TPS7A89 verbaut.
 
 Schnittstellen
 --------------
@@ -108,4 +110,14 @@ CAN Bus
 =======
 
 - CAN Bus Frequency 250Khz
+
+
+Steckerbelegung
+===============
+
+Der Kraftpaket und auch der Ladestecker sind identisch aufgebaut und Symmetrisch d.h. 
+können gedreht werden. Dafür sind die inneren Datenpins gespiegelt d.h. rechts und links
+identisch:
+
+![Kraftpaket 2.0 Stecker](images/20231230-stecker-akku-labels.jpg "Kraftpaket 2.0 Stecker")
 
