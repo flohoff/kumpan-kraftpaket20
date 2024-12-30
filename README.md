@@ -109,8 +109,26 @@ Diesen kann man dann pairen - Als device name taucht die seriennummer des Akkus 
 CAN Bus
 =======
 
-- CAN Bus Frequency 250Khz
+Ich habe den CAN Bus mit einem [Waveshare USB CAN Model A](https://www.waveshare.com/usb-can-a.htm) mitgeschnitten.
 
+Die Bitrate des CAN Bus ist 250kbit/s.
+
+CAN Messages
+------------
+
+| MsgID  | Origin   | Len | Description                                 |
+|--------|----------|----:|---------------------------------------------|
+| 0x0101 | Bat/Comm |     |                                             |
+| 0x054x | Bat/Comm |  7  | Example:                                    |
+|        |          |     | Frame ID: 0540, Data: 03 71 ea 99 46 d6 63  |
+|        |          |     | Byte 0   - Unknown                          |
+|        |          |     | Byte 1-4 - Serial Number                    |
+|        |          |     | Byte 6   - Unknown                          |
+|        |          |     | Byte 7   - Unknown                          |
+| 0x0640 | Bat      |     |                                             |
+| 0x0740 | Bat/Comm |  1  | Data 0x1 || 0x2                             |
+| 0x0782 | Bat/Comm |  1  | Data 0x0 || 0x2                             |
+| 0x0790 | Bat/Comm |  8  |                                             |
 
 Steckerbelegung
 ===============
