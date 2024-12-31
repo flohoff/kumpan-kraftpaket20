@@ -127,4 +127,7 @@ Die 4 äusseren Pins werden vermutlich dazu verwendet festzustellen ob ein Akku 
 ist. So hat der Blindstecker für nicht genutzte Akkusteckplätze nur jeweils diagonal 
 gegenüber liegende Pins bestückt. 
 
+Der Ladestecker hat keinen CAN Bus - Jedoch sind im Ladegerät 3 Pins mit Dioden verschaltet. Vermutlich
+werden die Pins dazu verwendet um zu detektieren das ein Ladegerät gesteckt ist.
+
 ![Blindstecker](images/20241230-blindstecker.jpg "Kraftpaket Blindstecker")
